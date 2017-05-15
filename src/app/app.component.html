@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <span>MovieApp</span>
+  <button md-button>Home</button>
+  <button md-button>About</button>
+  <search-bar [listId]="listId"></search-bar>
+</md-toolbar>
+
+<movie-list [listId]="listId"></movie-list>
