@@ -4,29 +4,27 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MovieAppMaterialModule } from './movie-app-material.module';
 
-import { AppComponent } from './app.component';
-import { SearchBarComponent } from './search-bar.component';
-import { MovieDetailsComponent } from './movie-details.component';
-import { MovieListComponent } from './movie-list.component';
+import { MovieModule } from './movie/movie.module';
+import { SearchModule } from './search/search.module';
 
-import { SearchService } from './search.service';
-import { EmitterService } from './emitter.service';
+import { AppComponent } from './app.component';
+
+import { EmitterService } from './shared/emitter.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
-    MovieDetailsComponent,
-    MovieListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MovieAppMaterialModule
+    MovieAppMaterialModule,
+    MovieModule,
+    SearchModule
   ],
-  providers: [ SearchService, EmitterService],
-  bootstrap: [AppComponent]
+  providers: [ EmitterService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EmitterService } from './emitter.service';
+import { EmitterService } from '../shared/emitter.service';
 
 @Component({
   selector: 'search-bar',
@@ -11,11 +11,9 @@ export class SearchBarComponent {
   @Input()
   listId: string;
 
-  movies: any[];
-
   constructor( private emitterService: EmitterService) { }
 
-  searchMovie(movie: string) {
-    this.emitterService.get(this.listId).emit(movie);
+  searchMovie(movieName: string) {
+    this.emitterService.get(this.listId).emit(movieName);
   };
 }

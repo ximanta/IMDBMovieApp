@@ -6,7 +6,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class SearchService {
+export class MovieService {
+
   apiUrl = 'http://www.omdbapi.com/';
 
   constructor( private http: Http ) { }
@@ -18,7 +19,6 @@ export class SearchService {
   }
 
   private handleError (error: Response | any) {
-    // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -27,7 +27,6 @@ export class SearchService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
     return Observable.throw(errMsg);
   }
 }

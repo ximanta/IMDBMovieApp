@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private listId = "LIST_MOVIE"
-  title = 'Movie App';
-  isLoggedIn = false;
+  private listId = 'LIST_MOVIE';
+  private brandName = 'Movie App';
 }

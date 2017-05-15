@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SearchService } from './search.service';
-import { Movie } from './movie';
+import { Movie } from '../model/movie';
 
 @Component({
   selector: 'movie-details',
@@ -10,5 +9,6 @@ import { Movie } from './movie';
 export class MovieDetailsComponent {
 
   @Input()
-  movie: any;
+  movie: Movie;
+
 }
