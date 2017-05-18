@@ -1,17 +1,34 @@
-<md-card>
+ <md-card *ngIf="movieDetails">
   <md-card-header>
-    <div md-card-avatar></div>
-    <md-card-title>{{ movie.Title }}</md-card-title>
-    <md-card-subtitle>{{ movie.imdbID }}</md-card-subtitle>
+    <md-card-title>
+      <h2>
+      <span>{{ movieDetails.Title }}</span>
+      <span>({{movieDetails.Year}})</span>
+      </h2>
+    </md-card-title>
+    <md-card-subtitle>
+      <span>{{ movieDetails.Runtime }}</span>|
+      <span>{{ movieDetails.Genre }}</span>|
+      <span>{{ movieDetails.Released }}</span>
+    </md-card-subtitle>
   </md-card-header>
-  <img md-card-image src="{{ movie.Poster }}" >
+  <img md-card-image src="{{ movieDetails.Poster }}">
   <md-card-content>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias mollitia, tempore ab deserunt eos rerum, dolores quo libero, vitae natus omnis explicabo, minima dolorem distinctio nobis deleniti nostrum voluptate illum?
+      {{ movieDetails.Plot }}
+    </p>
+    <p>
+      <span>Directors: </span> {{ movieDetails.Director}}
+    </p>
+    <p>
+      <span>Writers: </span> {{ movieDetails.Writer}}
+    </p>
+    <p>
+      <span>Stars: </span> {{ movieDetails.Actors}}
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button>SHARE</button>
+    <button md-button >Add</button>
+    <button md-button (click)="goBack()">Back</button>
   </md-card-actions>
 </md-card>

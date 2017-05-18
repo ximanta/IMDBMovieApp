@@ -1,15 +1,31 @@
-import {Injectable, EventEmitter} from '@angular/core';
+// import {Injectable, EventEmitter} from '@angular/core';
+// import { Subject } from 'rxjs/Subject';
 
-@Injectable()
-export class EmitterService {
+// // Observable operators
+// import 'rxjs/add/operator/catch';
+// import 'rxjs/add/operator/debounceTime';
+// import 'rxjs/add/operator/distinctUntilChanged';
 
-  private  _emitters: { [ID: string]: EventEmitter<any> } = {};
+// @Injectable()
+// export class EmitterService {
 
-  get(ID: string): EventEmitter<any> {
-    if (!this._emitters[ID]) {
-      this._emitters[ID] = new EventEmitter();
-    }
-    return this._emitters[ID];
+//   private listMovieSource = new Subject<string>();
+//   private searchTermsSource = new Subject<string>();
 
-  }
-}
+//   // Observable string streams
+//   listMovie$ = this.listMovieSource.asObservable();
+//   searchTerms$ = this.searchTermsSource
+//   .debounceTime(300)          // wait 300ms after each keystroke before considering the term
+//   .distinctUntilChanged();    // ignore if next search term is same as previous
+
+
+//   // Service message commands
+//   listMovie(movieName: string) {
+//     this.listMovieSource.next(movieName);
+//   }
+
+//   seach(searchTerms: string) {
+//     this.searchTermsSource.next(searchTerms);
+//   }
+
+// }

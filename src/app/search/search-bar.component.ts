@@ -1,19 +1,34 @@
 import { Component, Input } from '@angular/core';
-import { EmitterService } from '../shared/emitter.service';
+import { MovieService } from '../movie/movie.service';
+import { Router} from '@angular/router';
 
 @Component({
-  selector: 'search-bar',
+  selector: 'app-search-bar',
   templateUrl: 'search-bar.component.html',
   styleUrls: ['search-bar.component.css']
 })
 export class SearchBarComponent {
 
-  @Input()
-  listId: string;
+  movies: any;
 
-  constructor( private emitterService: EmitterService) { }
+  constructor(
+    private movieService: MovieService,
+    private router: Router
+          ) { }
 
   searchMovie(movieName: string) {
-    this.emitterService.get(this.listId).emit(movieName);
+    if (movieName.trim() !== '') {
+      this.router.navigate(['movieList', movieName]);
+    }
   };
+
+  // suggestMovie(keywords: string) {
+  //   if (keywords.trim() !== '') {
+  //     this.movieService.searchMovie(keywords).subscribe((movies) => {
+  //       this.movies = movies;
+  //       console.log(movies);
+  //     });
+  //   }
+  // }
+
 }

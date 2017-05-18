@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieAppMaterialModule } from '../movie-app-material.module';
 
-import { MovieDetailsComponent } from './movie-details.component';
+import { MovieCardComponent } from './movie-card.component';
 import { MovieListComponent } from './movie-list.component';
+import { MovieDetailsComponent } from './movie-details.component';
+
 
 import { MovieService } from './movie.service';
 
-
 @NgModule({
   declarations: [
-    MovieDetailsComponent,
-    MovieListComponent
+    MovieCardComponent,
+    MovieListComponent,
+    MovieDetailsComponent
   ],
   imports: [
     CommonModule,

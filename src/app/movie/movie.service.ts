@@ -18,6 +18,13 @@ export class MovieService {
     .catch(this.handleError);
   }
 
+  viewMovieDetails(imdbID: string) {
+    console.log(imdbID);
+    return this.http.get(`${this.apiUrl}?i=${imdbID}&plot=full`)
+    .map((res: Response) => res.json())
+    .catch(this.handleError);
+  }
+
   private handleError (error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {

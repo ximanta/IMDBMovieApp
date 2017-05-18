@@ -1,14 +1,35 @@
-import { Component, Input } from '@angular/core';
-import { Movie } from '../model/movie';
+import { Component, OnInit} from '@angular/core';
+import { MovieService } from './movie.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'movie-details',
-  templateUrl: 'movie-details.component.html',
-  styleUrls: ['movie-details.component.css']
+  selector: 'app-movie-plot-details',
+  templateUrl: './movie-details.component.html',
+  styleUrls: ['./movie-details.component.css']
 })
-export class MovieDetailsComponent {
+export class MovieDetailsComponent implements OnInit {
 
-  @Input()
-  movie: Movie;
+  movieDetails: any;
+
+  constructor(
+    private movieService: MovieService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private location: Location
+    ) { }
+
+  ngOnInit() {
+     const imdbId = this.route.snapshot.params['imdbId'];
+     this.movieService.viewMovieDetails(imdbId)
+    .subscribe((movieDetails: any) => {
+      this.movieDetails = movieDetails;
+    });
+  }
+
+  goBack() {
+    this.location.back();
+  }
 
 }
