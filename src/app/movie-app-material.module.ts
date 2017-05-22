@@ -6,10 +6,12 @@ import {
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    MdGridListModule
 } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdGridListModule } from '@angular/material';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
     imports: [
@@ -19,9 +21,9 @@ import { MdGridListModule } from '@angular/material';
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
-    FlexLayoutModule,
     MdGridListModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    BrowserAnimationsModule
     ],
     exports: [
     MdButtonModule,
@@ -30,9 +32,9 @@ import { MdGridListModule } from '@angular/material';
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
-    FlexLayoutModule,
     MdGridListModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    BrowserAnimationsModule
     ]
 })
 export class MovieAppMaterialModule { }
