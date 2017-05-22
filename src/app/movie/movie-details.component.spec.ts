@@ -1,9 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, Injectable } from '@angular/core';
-import { Location } from '@angular/common';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { Router, ActivatedRoute } from '@angular/router';
-import { MovieService } from './movie.service';
+import { Location } from '@angular/common';
+
 import { MovieDetailsComponent } from './movie-details.component';
+import { MovieService } from './movie.service';
 
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -82,48 +84,40 @@ describe('MovieDetailsComponent', () => {
   it('should be load MovieDetails on Init', () => {
     expect(component.movieDetails).toEqual(makeMovieData());
   });
+
 });
 
-
+// helper stub for Router
 class RouterStub {
   navigate(url: string[]) { return url; }
 }
 
+// helper stub for ActivatedRoute
 class ActivatedRouteStub {
 
-  // ActivatedRoute.params is Observable
-  private subject = new BehaviorSubject(this.testParams);
-  params = this.subject.asObservable();
-
-  // Test parameters
-  private _testParams: { };
-  get testParams() { return this._testParams; }
-  set testParams(params: {}) {
-    this._testParams = params;
-    this.subject.next(params);
-  }
-
-  private testParams2 = {
+  private testParams = {
     imbdId : 'tt2543164'
   };
 
   // ActivatedRoute.snapshot.params
   get snapshot() {
-    return { params: this.testParams2 };
+    return { params: this.testParams };
   }
 }
 
-class MovieServiceStub {
-
-  viewMovieDetails(imdbID: string) {
-    return Observable.of(makeMovieData());
-  }
-
-}
-
+// helper stub for Location
 class LocationStub {
 
   back() {
 
   }
 }
+
+// helper stub for MovieService
+class MovieServiceStub {
+
+  viewMovie(imdbID: string) {
+    return Observable.of(makeMovieData());
+  }
+}
+

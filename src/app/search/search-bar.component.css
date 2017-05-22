@@ -1,8 +1,0 @@
-div {
-  position: relative;
-}
-
-div md-autocomplete {
-  position: absolute;
-  clear: both;
-}

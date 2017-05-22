@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
     MdButtonModule,
     MdCardModule,
@@ -14,7 +13,6 @@ import { MdGridListModule } from '@angular/material';
 
 @NgModule({
     imports: [
-    BrowserAnimationsModule,
     MdButtonModule,
     MdMenuModule,
     MdCardModule,
@@ -26,7 +24,6 @@ import { MdGridListModule } from '@angular/material';
     MdAutocompleteModule
     ],
     exports: [
-    BrowserAnimationsModule,
     MdButtonModule,
     MdMenuModule,
     MdCardModule,

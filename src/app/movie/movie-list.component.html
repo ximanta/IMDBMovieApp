@@ -1,5 +1,7 @@
-<md-grid-list cols="4" rowHeight="500px">
+<md-grid-list *ngIf='movies.length > 0' cols="4" rowHeight="500px">
   <md-grid-tile *ngFor = " let movie of movies">
-    <app-movie-details [movie]="movie"></app-movie-details>
+    <app-movie-card [movie]="movie"></app-movie-card>
   </md-grid-tile>
 </md-grid-list>
+
+<h2 *ngIf='errormsg'> {{ errormsg }} </h2>

@@ -7,7 +7,7 @@ import { MovieAppMaterialModule } from './movie-app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { MovieModule } from './movie/movie.module';
-import { SearchModule } from './search/search.module';
+import { NavbarModule } from './navbar/navbar.module';
 
 import { AppComponent } from './app.component';
 
@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     MovieAppMaterialModule,
     MovieModule,
-    SearchModule,
+    NavbarModule,
     AppRoutingModule
   ],
   bootstrap: [ AppComponent ]

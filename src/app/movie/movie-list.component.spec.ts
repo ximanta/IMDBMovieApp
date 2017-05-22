@@ -16,7 +16,8 @@ describe('MovieListComponent', () => {
   let comp: MovieListComponent;
   let fixture: ComponentFixture<MovieListComponent>;
   let de: DebugElement;  // the DebugElement
-  let el: HTMLElement; // the DOM element
+  let movieService: MovieService;
+  let router: ActivatedRoute;
 
   // async beforeEach
   beforeEach(async(() => {
@@ -34,13 +35,18 @@ describe('MovieListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MovieListComponent);
     comp    = fixture.componentInstance;
-    //  get the element by CSS selector (e.g., by class name)
     de = fixture.debugElement;
-    el = de.nativeElement;
+    movieService = de.injector.get(MovieService);
+    router = de.injector.get(ActivatedRoute);
   });
 
   it('should be created', () => {
     expect(comp).toBeTruthy();
+  });
+
+  it('should call get MovieService getMovies method on init', () => {
+    const spy = spyOn(movieService, 'getMovies');
+    expect(spy.calls.any).toBeTruthy();
   });
 
 });
@@ -97,16 +103,11 @@ class ActivatedRouteStub {
     this._testParams = params;
     this.subject.next(params);
   }
-
-  // ActivatedRoute.snapshot.params
-  get snapshot() {
-    return { params: this.testParams };
-  }
 }
 
 class MovieServiceStub {
 
-  searchMovie(movie: string): Observable<any> {
+  getMovies(movie: string): Observable<any> {
    return Observable.of(makeMovieData());
   }
 }

@@ -9,8 +9,6 @@ describe('AppComponent', () => {
 
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let debugElement: DebugElement;  // the DebugElement
-  let domElement: HTMLElement; // the DOM element
 
   // async beforeEach
   beforeEach(async(() => {
@@ -33,15 +31,6 @@ describe('AppComponent', () => {
 
   it('should have as title \'Movie Cruiser\'', () => {
     expect(component.title).toEqual('Movie Cruiser');
-  });
-
-  it('should render title in a h1 tag', () => {
-    // selecting Debug Element that contains title
-    debugElement = fixture.debugElement.query(By.css('h1'));
-    // getting DOM Element from Debug Element
-    domElement = debugElement.nativeElement;
-    fixture.detectChanges();
-    expect(domElement.innerText).toContain('Movie Cruiser');
   });
 
 });

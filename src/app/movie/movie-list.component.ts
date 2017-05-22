@@ -11,6 +11,7 @@ import { Movie } from '../model/movie';
 export class MovieListComponent implements OnInit {
 
   movies: Movie[] = [];
+  errormsg: string;
 
   constructor(
     private movieService: MovieService,
@@ -18,9 +19,11 @@ export class MovieListComponent implements OnInit {
     private route: ActivatedRoute ) { }
 
   ngOnInit() {
-
     this.route.params
-    .switchMap((params: Params) => this.movieService.searchMovie(params['movieName']))
-    .subscribe((movie: Movie[]) => this.movies = movie);
+    .switchMap((params: Params) => this.movieService.getMovies(params['movieName']))
+    .subscribe((movie: Movie[]) => {
+      movie.length > 0 ? this.movies = movie : this.errormsg = 'Not Found';
+      this.movies = movie;
+    });
   }
 }

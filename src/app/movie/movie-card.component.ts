@@ -3,7 +3,7 @@ import { Movie } from '../model/movie';
 import { Router, } from '@angular/router';
 
 @Component({
-  selector: 'app-movie-details',
+  selector: 'app-movie-card',
   templateUrl: 'movie-card.component.html',
   styleUrls: ['movie-card.component.css']
 })
@@ -12,6 +12,7 @@ export class MovieCardComponent {
 
   constructor( private router: Router ) { }
 
+  // intercept movie by setter to set default poster if not available
   @Input()
   set movie(value: Movie) {
     if (value.Poster === 'N/A') {
@@ -24,7 +25,7 @@ export class MovieCardComponent {
     return this._movie;
   }
 
-  viewMovieDetails(imdbID: string) {
+  viewMovie(imdbID: string) {
     this.router.navigate(['/movieDetail', imdbID]);
   }
 }

@@ -1,8 +1,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-img {
-  height: 320px;
+
+#search {
+  margin-left: 20%;
 }
-md-card {
-  width: 297px;
-}
+

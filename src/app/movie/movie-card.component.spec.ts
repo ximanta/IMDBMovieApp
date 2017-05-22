@@ -27,7 +27,6 @@ describe('MovieCardComponent', () => {
 
   // async beforeEach
   beforeEach(async(() => {
-
     TestBed.configureTestingModule({
       declarations: [ MovieCardComponent ],
       providers: [ { provide: Router, useClass: RouterStub } ],

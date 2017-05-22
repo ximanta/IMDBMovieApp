@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'app-movie-plot-details',
+  selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css']
 })
@@ -22,7 +22,7 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit() {
      const imdbId = this.route.snapshot.params['imdbId'];
-     this.movieService.viewMovieDetails(imdbId)
+     this.movieService.viewMovie(imdbId)
     .subscribe((movieDetails: any) => {
       this.movieDetails = movieDetails;
     });
