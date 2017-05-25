@@ -9,7 +9,7 @@ import { SearchModule } from './search/search.module';
 
 import { AppComponent } from './app.component';
 
-import { EmitterService } from './shared/emitter.service';
+import { MovieAppService } from './shared/movieApp.service';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { EmitterService } from './shared/emitter.service';
     MovieModule,
     SearchModule
   ],
-  providers: [ EmitterService ],
+  providers: [ MovieAppService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
