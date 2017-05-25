@@ -1,37 +1,29 @@
 import { Component, Input, OnInit, OnChanges} from '@angular/core';
 import { MovieService } from './movie.service';
-import { EmitterService } from '../shared/emitter.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Movie } from '../model/movie';
 
 @Component({
-  selector: 'movie-list',
+  selector: 'app-movie-list',
   templateUrl: 'movie-list.component.html',
   styleUrls: ['movie-list.component.css']
 })
-export class MovieListComponent implements OnInit, OnChanges {
-
-  @Input()
-  listId: string;
+export class MovieListComponent implements OnInit {
 
   movies: Movie[] = [];
+  errormsg: string;
 
-  constructor( private MovieService: MovieService, private emitterService: EmitterService) { }
+  constructor(
+    private movieService: MovieService,
+    private router: Router,
+    private route: ActivatedRoute ) { }
 
   ngOnInit() {
-    this.getMovies();
-  }
-
-  ngOnChanges(changes: any) {
-    this.emitterService.get(this.listId).subscribe((movieName: string ) => {
-      this.getMovies(movieName);
+    this.route.params
+    .switchMap((params: Params) => this.movieService.getMovies(params['movieName']))
+    .subscribe((movie: Movie[]) => {
+      movie.length > 0 ? this.movies = movie : this.errormsg = 'Not Found';
+      this.movies = movie;
     });
   }
-
-  getMovies(movieName: string = 'batman') {
-    this.MovieService.searchMovie(movieName)
-    .subscribe((movies: any) => {
-      this.movies = movies;
-    });
-  }
-
 }

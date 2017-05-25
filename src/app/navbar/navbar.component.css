@@ -1,6 +1,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-img {
-  height: 320px;
-  width: 240px;
+
+#search {
+  margin-left: 20%;
 }
+

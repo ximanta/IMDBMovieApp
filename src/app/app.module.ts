@@ -2,15 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 import { MovieAppMaterialModule } from './movie-app-material.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { MovieModule } from './movie/movie.module';
-import { SearchModule } from './search/search.module';
+import { NavbarModule } from './navbar/navbar.module';
 
 import { AppComponent } from './app.component';
-
-import { EmitterService } from './shared/emitter.service';
-
 
 @NgModule({
   declarations: [
@@ -22,9 +21,9 @@ import { EmitterService } from './shared/emitter.service';
     HttpModule,
     MovieAppMaterialModule,
     MovieModule,
-    SearchModule
+    NavbarModule,
+    AppRoutingModule
   ],
-  providers: [ EmitterService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

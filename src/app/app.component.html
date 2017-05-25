@@ -1,8 +1,3 @@
-<md-toolbar color="primary">
-  <span>{{ brandName }}</span>
-  <button md-button>Home</button>
-  <button md-button>About</button>
-  <search-bar [listId]="listId"></search-bar>
-</md-toolbar>
+<app-navbar [title]='title'></app-navbar>
 
-<movie-list [listId]="listId"></movie-list>
+<router-outlet></router-outlet>

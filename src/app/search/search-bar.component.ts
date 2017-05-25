@@ -1,19 +1,37 @@
-import { Component, Input } from '@angular/core';
-import { EmitterService } from '../shared/emitter.service';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../movie/movie.service';
+import { Router} from '@angular/router';
+
 
 @Component({
-  selector: 'search-bar',
+  selector: 'app-search-bar',
   templateUrl: 'search-bar.component.html',
   styleUrls: ['search-bar.component.css']
 })
-export class SearchBarComponent {
+export class SearchBarComponent implements OnInit {
 
-  @Input()
-  listId: string;
+  movies: any;
 
-  constructor( private emitterService: EmitterService) { }
+  constructor(
+    private movieService: MovieService,
+    private router: Router ) { }
 
-  searchMovie(movieName: string) {
-    this.emitterService.get(this.listId).emit(movieName);
+  ngOnInit() {
+    this.movieService.searchTerms$
+    .switchMap((searchTerms) => this.movieService.getMovies(searchTerms))
+    .subscribe((movies) => this.movies = movies);
+  }
+
+  searchMovies(movieName: string) {
+    if (movieName.trim() !== '') {
+      this.router.navigate(['movieList', movieName]);
+    }
   };
+
+  suggestMovie(keywords: string) {
+    if (keywords.trim() !== '') {
+      this.movieService.suggestMovie(keywords);
+    }
+  }
+
 }

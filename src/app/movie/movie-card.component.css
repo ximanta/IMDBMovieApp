@@ -2,5 +2,7 @@
 
 img {
   height: 320px;
-  width: 240px;
+}
+md-card {
+  width: 297px;
 }

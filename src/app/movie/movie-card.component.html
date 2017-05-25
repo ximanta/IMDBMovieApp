@@ -1,0 +1,11 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>{{ movie.Title }}</md-card-title>
+    <md-card-subtitle>{{ movie.Type }} | {{ movie.Year }}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="{{ movie.Poster }}" >
+  <md-card-actions>
+  <button md-button >Add</button>
+    <button md-button (click)="viewMovie(movie.imdbID)">Details</button>
+  </md-card-actions>
+</md-card>

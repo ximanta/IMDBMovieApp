@@ -1,0 +1,5 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+h2 {
+   text-align: center;
+}

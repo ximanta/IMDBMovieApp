@@ -1,25 +1,40 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule} from '@angular/material';
+import {
+    MdButtonModule,
+    MdCardModule,
+    MdMenuModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdInputModule,
+    MdAutocompleteModule,
+    MdGridListModule
+} from '@angular/material';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
+    imports: [
     MdButtonModule,
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
     MdIconModule,
-    MdInputModule
-  ],
-  exports: [
-    BrowserAnimationsModule,
+    MdInputModule,
+    MdGridListModule,
+    MdAutocompleteModule,
+    BrowserAnimationsModule
+    ],
+    exports: [
     MdButtonModule,
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
     MdIconModule,
-    MdInputModule
- ]
+    MdInputModule,
+    MdGridListModule,
+    MdAutocompleteModule,
+    BrowserAnimationsModule
+    ]
 })
 export class MovieAppMaterialModule { }
